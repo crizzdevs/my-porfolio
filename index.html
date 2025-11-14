@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cris Julian Portfolio - Page 1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for PixelButton, PixelCard, etc. */
+    .pixel-button {
+      @apply px-6 py-3 font-bold text-sm border-2 rounded-lg transition-all duration-200 cursor-pointer;
+    }
+    .pixel-button.primary { @apply bg-blue-500 text-white border-blue-500 hover:bg-blue-600; }
+    .pixel-button.accent { @apply bg-green-500 text-white border-green-500 hover:bg-green-600; }
+    .pixel-button.secondary { @apply bg-gray-500 text-white border-gray-500 hover:bg-gray-600; }
+
+    .pixel-card {
+      @apply p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300;
+    }
+    .pixel-card.game { @apply text-center; }
+    .pixel-card.quest { @apply text-center; }
+    .pixel-card:hover { @apply scale-105 border-blue-400/70; }
+
+    /* Blinking stars animation */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Typing text effect */
+    .typing-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+  </style>
+</head>
+<body class="bg-neutral-950 text-white">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-neutral-900/80 backdrop-blur-md z-50 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold text-blue-400">Cris Julian</h1>
+      <div class="space-x-4">
+        <a href="#home" class="text-white hover:text-blue-400">Home</a>
+        <a href="#about" class="text-white hover:text-blue-400">About</a>
+        <a href="#projects" class="text-white hover:text-blue-400">Projects</a>
+        <a href="#contact" class="text-white hover:text-blue-400">Contact</a>
+        <a href="education.html" class="text-white hover:text-blue-400">Education</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <!-- Stars Background -->
+    <div class="absolute inset-0 opacity-20">
+      <div id="stars"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Left Side -->
+        <div class="space-y-8">
+          <div class="space-y-4">
+            <div class="text-accent text-sm font-medium mb-2">HEYYOOO! 👋</div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              <span id="typing-text" class="typing-text"></span>
+            </h1>
+            <h2 class="text-lg sm:text-xl md:text-2xl text-primary font-semibold">Aspiring Software Developer</h2>
+            <div class="text-sm sm:text-base text-muted-foreground space-y-4 max-w-lg leading-relaxed">
+              <p>I'm an <strong>18-year-old Computer Science student</strong> at the <strong class="text-accent">University of the Cordilleras</strong>. My passion lies in <strong class="text-accent">software development</strong>, <strong class="text-accent">artificial intelligence</strong>, and <strong class="text-accent">machine learning</strong>.</p>
+              <p>I love exploring how technology and creativity can merge to build intelligent, human-centered solutions. My long-term goal is to create software that enhances productivity, learning, and accessibility for everyone.</p>
+            </div>
+          </div>
+          <!-- Buttons -->
+          <div class="flex gap-4">
+            <button class="pixel-button primary" onclick="scrollToProjects()">View Projects</button>
+            <button class="pixel-button accent" onclick="scrollToContact()">Get in Touch</button>
+          </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="flex flex-col items-center gap-6">
+          <!-- Profile Image -->
+          <div class="relative">
+            <div class="absolute inset-0 rounded-full border-4 border-primary blur-md opacity-50 animate-pulse"></div>
+            <img src="assets/pixel-character.png" alt="Profile illustration of Cris Julian" class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full object-cover z-10 shadow-lg" />
+          </div>
+
+          <!-- Code Editor Box -->
+          <div class="bg-[#1e1e1e] text-gray-200 border border-border rounded-xl shadow-2xl w-[360px] sm:w-[420px] md:w-[480px] p-5 font-mono relative overflow-hidden">
+            <div class="flex gap-2 mb-3">
+              <span class="w-3 h-3 rounded-full bg-red-500" />
+              <span class="w-3 h-3 rounded-full bg-yellow-400" />
+              <span class="w-3 h-3 rounded-full bg-green-500" />
+            </div>
+            <pre class="text-sm leading-relaxed flex">
+              <code class="select-none text-gray-500 pr-4 border-r border-gray-700">
+1<br>2<br>3<br>4<br>5<br>6
+              </code>
+              <code class="pl-4">
+                <span class="text-purple-400">class</span> <span class="text-blue-400">Student</span> {<br>
+                  &nbsp;&nbsp;<span class="text-green-400">String</span> <span class="text-white">name</span> = <span class="text-yellow-300">"Cris Julian R. Abuan"</span>;<br>
+                  &nbsp;&nbsp;<span class="text-green-400">int</span> <span class="text-white">age</span> = <span class="text-blue-300">18</span>;<br>
+                  &nbsp;&nbsp;<span class="text-green-400">String</span> <span class="text-white">sex</span> = <span class="text-yellow-300">"Male"</span>;<br>
+                  &nbsp;&nbsp;<span class="text-green-400">String</span> <span class="text-white">dream</span> = <span class="text-yellow-300">"To get RICH"</span>;<br>
+                }
+              </code>
+            </pre>
+            <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 via-accent/10 to-secondary/10 blur-3xl pointer-events-none" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 text-white relative">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-blue-400 mb-2 tracking-wide">About</h2>
+        <div class="h-1 w-16 bg-primary mx-auto rounded-full opacity-80" />
+      </div>
+
+      <!-- Interests -->
+      <div class="mb-12">
+        <h3 class="text-xl font-semibold text-blue-300 mb-6 text-center">Interests</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="pixel-card">
+            <div class="flex items-center mb-3 space-x-3">
+              <span class="text-accent">🎵</span>
+              <h4 class="text-xl font-semibold text-blue-300">Music</h4>
+            </div>
+            <p class="text-gray-400 text-sm mt-2">Playing guitar to express creativity and focus through rhythm and melody.</p>
+          </div>
+          <div class="pixel-card">
+            <div class="flex items-center mb-3 space-x-3">
+              <span class="text-primary">🎨</span>
+              <h4 class="text-xl font-semibold text-blue-300">Art</h4>
+            </div>
+            <p class="text-gray-400 text-sm mt-2">Translating imagination into visuals that influence design and coding aesthetics.</p>
+          </div>
+          <div class="pixel-card">
+            <div class="flex items-center mb-3 space-x-3">
+              <span class="text-secondary">🍽️</span>
+              <h4 class="text-xl font-semibold text-blue-300">Food</h4>
+            </div>
+            <p class="text-gray-400 text-sm mt-2">Exploring new cuisines as a way to appreciate culture and creativity in life.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Skills -->
+      <div>
+        <h3 class="text-xl font-semibold text-blue-300 mb-6 text-center">Technical Skills</h3>
+        <div class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
+          <div class="pixel-card quest">
+            <div class="flex items-center justify-center mb-2 space-x-3">
+              <span class="text-accent">💻</span>
+            </div>
+            <div class="text-sm font-medium text-accent">HTML</div>
+          </div>
+          <div class="pixel-card quest">
+            <div class="flex items-center justify-center mb-2 space-x-3">
+              <span class="text-primary">🎨</span>
+            </div>
+            <div class="text-sm font-medium text-primary">CSS</div>
+          </div>
+          <div class="pixel-card quest">
+            <div class="flex items-center justify-center mb-2 space-x-3">
+              <span class="text-secondary">⚡</span>
+            </div>
+            <div class="text-sm font-medium text-secondary">JAVASCRIPT</div>
+          </div>
+          <div class="pixel-card quest">
+            <div class="flex items-center justify-center mb-2 space-x-3">
+              <span class="text-accent">☕</span>
+            </div>
+            <div class="text-sm font-medium text-accent">JAVA</div>
+          </div>
+          <div class="pixel-card quest">
+            <div class="flex items-center justify-center mb-2 space-x-3">
+              <span class="text-secondary">⚛️</span>
+            </div>
+            <div class="text-sm font-medium text-secondary">REACT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section (New Addition) -->
+  <section id="projects" class="py-20 text-white relative">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-blue-400 mb-2 tracking-wide">Projects</h2>
+        <div class="h-1 w-16 bg-primary mx-auto rounded-full opacity-80" />
+        <p class="text-sm text-muted-foreground mt-4">Showcasing my work in software development and AI.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Project 1 -->
+        <div class="pixel-card">
+          <div class="mb-4">
+            <div class="text-4xl mb-2">🎮</div>
+            <h3 class="text-xl font-semibold text-blue-300">AI Chatbot</h3>
+          </div>
+          <p class="text-gray-400 text-sm mb-4">A machine learning-powered chatbot for customer support, built with Python and TensorFlow.</p>
+          <div class="flex gap-2">
+            <span class="text-xs bg-blue-500 px-2 py-1 rounded">Python</span>
+            <span class="text-xs bg-green-500 px-2 py-1 rounded">AI</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="pixel-card">
+          <div class="mb-4">
+            <div class="text-4xl mb-2">🌐</div>
+            <h3 class="text-xl font-semibold text-blue-300">Portfolio Website</h3>
+          </div>
+          <p class="text-gray-400 text-sm mb-4">This very site! A responsive portfolio built with HTML, CSS, and JavaScript.</p>
+          <div class="flex gap-2">
+            <span class="text-xs bg-accent px-2 py-1 rounded">HTML</span>
+            <span class="text-xs bg-primary px-2 py-1 rounded">CSS</span>
+            <span class="text-xs bg-secondary px-2 py-1 rounded">JS</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="pixel-card">
+          <div class="mb-4">
+            <div class="text-4xl mb-2">📱</div>
+            <h3 class="text-xl font-semibold text-blue-300">Mobile App</h3>
+          </div>
+          <p class="text-gray-400 text-sm mb-4">A React Native app for task management, featuring real-time sync and user authentication.</p>
+          <div class="flex gap-2">
+            <span class="text-xs bg-secondary px-2 py-1 rounded">React</span>
+            <span class="text-xs bg-yellow-500 px-2 py-1 rounded">Firebase</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 relative">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">Get in Touch</h2>
+        <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+        <p class="text-sm text-muted-foreground mt-4">Let's collaborate on something amazing</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="pixel-card game">
+          <div class="space-y-4">
+            <div class="text-5xl mb-4">👋</div>
+            <p class="text-base leading-relaxed max-w-2xl mx-auto text-muted-foreground">I'm always open to discussing new projects, creative ideas, or opportunities to contribute to innovative solutions. Feel free to reach out through any of the channels below!</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6">
+          <a href="mailto:abuancrisjulian@gmail.com" class="block">
+            <div class="pixel-card quest">
+              <div class="space-y-3">
+                <div class="text-4xl">📧</div>
+                <div>
+                  <div class="text-sm font-semibold text-accent mb-1">EMAIL</div>
+                  <div class="text-xs text-muted-foreground">abuancrisjulian@gmail.com</div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/cris-julian-abuan-a53a98385/" target="_blank" rel="noopener noreferrer" class="block">
+            <div class="pixel-card quest">
+              <div class="space-y-3">
+                        <a href="https://www.linkedin.com/in/cris-julian-abuan-a53a98385/" target="_blank" rel="noopener noreferrer" class="block">
+            <div class="pixel-card quest">
+              <div class="space-y-3">
+                <div class="text-4xl">💼</div>
+                <div>
+                  <div class="text-sm font-semibold text-primary mb-1">LINKEDIN</div>
+                  <div class="text-xs text-muted-foreground">Cris Julian R. Abuan</div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="https://github.com/crizzdevs" target="_blank" rel="noopener noreferrer" class="block">
+            <div class="pixel-card quest">
+              <div class="space-y-3">
+                <div class="text-4xl">💻</div>
+                <div>
+                  <div class="text-sm font-semibold text-secondary mb-1">GITHUB</div>
+                  <div class="text-xs text-muted-foreground">/crizzdevs</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="pixel-card">
+          <div class="text-center space-y-6">
+            <p class="text-base text-muted-foreground">Ready to connect?</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <button class="pixel-button primary">Send Message</button>
+              <button class="pixel-button secondary">Download CV</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
