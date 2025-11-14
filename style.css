@@ -1,0 +1,59 @@
+/* Custom styles for PixelButton, PixelCard, etc. */
+.pixel-button {
+  @apply px-6 py-3 font-bold text-sm border-2 rounded-lg transition-all duration-200 cursor-pointer;
+}
+.pixel-button.primary { @apply bg-blue-500 text-white border-blue-500 hover:bg-blue-600; }
+.pixel-button.accent { @apply bg-green-500 text-white border-green-500 hover:bg-green-600; }
+.pixel-button.secondary { @apply bg-gray-500 text-white border-gray-500 hover:bg-gray-600; }
+
+.pixel-card {
+  @apply p-6 bg-neutral-900/60 border border-blue-900/40 rounded-2xl transition-all duration-300;
+}
+.pixel-card.game { @apply text-center; }
+.pixel-card.quest { @apply text-center; }
+.pixel-card:hover { @apply scale-105 border-blue-400/70; }
+
+/* Blinking stars animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Typing text effect */
+.typing-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+}
+
+/* Education-specific styles (for education.html) */
+.education-title {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.education-title.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pixel-card[data-index] {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.pixel-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.pixel-card:hover {
+  @apply scale-105 border-blue-400/70 shadow-lg shadow-blue-400/20;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); /* Game-like glow */
+}
+
+/* Game-type accent: Subtle pulsing for icons on hover */
+.icon-hover:hover {
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
